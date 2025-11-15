@@ -1,0 +1,76 @@
+    cout << fixed << setprecision(9);
+
+    float d = (float)a / b; // force floating-point division
+    int flr = floor(d);
+    int clg = ceil(d);
+    int rnd = round(d);
+
+    cout << "Floor: " << flr << "\n";
+    cout << "Ceil: " << clg << "\n";
+    cout << "Round: " << rnd << "\n";
+
+    // reverse() - reverses elements
+    reverse(n.begin(), n.end());
+
+    // sort() - sorts in ascending order
+    sort(n.begin(), n.end());
+
+    // sort() with greater<char>() - sorts in descending order
+    sort(n.begin(), n.end(), greater<char>());
+
+    // find() - finds first occurrence
+    auto it = find(n.begin(), n.end(), 'a');
+
+    // count() - counts occurrences
+    int cnt = count(n.begin(), n.end(), 'a');
+
+    // max_element() - finds maximum element
+    auto max_it = max_element(n.begin(), n.end());
+    cout << "Max element: " << *max_it << "\n";
+
+    // min_element() - finds minimum element
+    auto min_it = min_element(n.begin(), n.end());
+    cout << "Min element: " << *min_it << "\n";
+
+    // middle element
+    auto mid_it = n.begin() + n.size() / 2;
+    cout << "Middle element: " << *mid_it << "\n";
+
+
+
+
+Option 1: Print digits from left to right
+int a = 123453;
+
+string s = to_string(a);
+
+for (char c : s) {
+    cout << c << " ";
+}
+Output:
+1 2 3 4 5 3
+Option 2: Without converting to string (pure math method) If you want digits in original order, you first store them reversed, then print.
+int a = 123453;
+vector<int> d;
+
+while (a > 0) {
+    d.push_back(a % 10);  // extract last digit
+    a /= 10;              // remove last digit
+}
+
+reverse(d.begin(), d.end()); // fix order
+
+for (int x : d) {
+    cout << x << " ";
+}
+
+
+In a Matrix
+  for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            if (i == j && i == n / 2) // center cell → X
+            else if (i == j) // find  left diagonal → "\"
+            else if (j == n - 1 - i) //find  right diagonal → /
+            else                //	Everywhere else → *
+        }
+    }
